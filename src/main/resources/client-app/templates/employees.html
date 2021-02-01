@@ -1,0 +1,45 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Employees by Name</h1>
+
+<div th:if="not ${employees}">
+    <div class="alert alert-warning m-2">
+        No employees found containing
+    </div>
+    <div style="height: 2cm">&nbsp;</div>
+</div>
+
+<div th:if="${employees}">
+    <p>
+        Employees contains
+    </p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Emp Number</th>
+            <th>Name</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="employee : ${employees}">
+            <td><a href="employee.html"
+                   th:href="@{|/employees/${employee.id}|}"
+                   th:text="|${employee.id}|">11111111</a></td>
+            <td th:text="${employee.employeeName}">Owner</td>
+            <td th:text="${employee.salary}">0</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

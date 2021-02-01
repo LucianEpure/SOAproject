@@ -1,0 +1,49 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Rooms</title>
+</head>
+<body>
+<h1>Rooms in the hotel</h1>
+
+<div th:if="not ${rooms}">
+    <div class="alert alert-warning m-2">
+        No rooms found
+    </div>
+    <div style="height: 2cm">&nbsp;</div>
+</div>
+
+<div th:if="${rooms}">
+    <p>
+       The rooms are:
+    </p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Room number</th>
+            <th>Room Type</th>
+            <th>Room Floor</th>
+            <th>Available</th>
+            <th>Smoking</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="room: ${rooms}">
+            <td><a href="room.html"
+                   th:href="@{|/rooms/${room.roomNumber}|}"
+                   th:text="|${room.roomNumber}|">11111111</a></td>
+            <td th:text="${room.roomType}">Type</td>
+            <td th:text="${room.roomFloor}">0</td>
+            <td th:text="${room.isAvailable}">0</td>
+            <td th:text="${room.smokingRoom}">0</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

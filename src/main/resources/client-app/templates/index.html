@@ -1,0 +1,19 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Client</title>
+</head>
+<body>
+<h3>Hotel Menu</h3>
+
+<ul class="openlist">
+    <li>Employees: <a th:href="@{/employees}">Employees Menu</a></li>
+    <li>Rooms: <a th:href="@{/rooms}">Rooms Menu</a></li>
+    <li>Bookings: <a th:href="@{/bookings}">Bookings Menu</a></li>
+
+</ul>
+</body>
+</html>

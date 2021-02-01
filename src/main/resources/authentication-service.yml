@@ -1,0 +1,18 @@
+# Spring properties
+spring:
+  application:
+    name: authentication-service
+  thymeleaf:
+    cache: false
+    prefix: classpath:/authentication-service/templates/
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${service.finder.hostname}:1010/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10   # DO NOT DO THIS IN PRODUCTION
+
+# HTTP Server
+server.port:  1020  # HTTP (Tomcat) port

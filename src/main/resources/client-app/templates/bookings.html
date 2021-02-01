@@ -1,0 +1,47 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookings</title>
+</head>
+<body>
+<h1>Hotel Bookings</h1>
+
+<div th:if="not ${bookings}">
+    <div class="alert alert-warning m-2">
+        No bookings found
+    </div>
+    <div style="height: 2cm">&nbsp;</div>
+</div>
+
+<div th:if="${bookings}">
+    <p>
+        Bookings are
+    </p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Booking id</th>
+            <th>Client name</th>
+            <th>Number of days</th>
+            <th>Total cost</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="booking : ${bookings}">
+            <td><a href="booking.html"
+                   th:href="@{|/bookings/${booking.id}|}"
+                   th:text="|${booking.id}|">11111111</a></td>
+            <td th:text="${booking.clientName}">Owner</td>
+            <td th:text="${booking.noOfDays}">0</td>
+            <td th:text="${booking.cost}">0</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

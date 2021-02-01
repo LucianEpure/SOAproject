@@ -1,0 +1,20 @@
+# Spring properties
+spring:
+  application:
+    name: employee-service
+  freemarker:
+    enabled: false
+  thymeleaf:
+      cache: false
+      prefix: classpath:/employee-service/templates/
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${service.finder.hostname}:1010/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10   # DO NOT DO THIS IN PRODUCTION
+
+# HTTP Server
+server.port:  1011  # HTTP (Tomcat) port

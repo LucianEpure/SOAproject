@@ -1,0 +1,18 @@
+# Spring properties
+spring:
+  application:
+    name: booking-service
+  thymeleaf:
+    cache: false
+    prefix: classpath:/booking-service/templates/
+
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${service.finder.hostname}:1010/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10   # DO NOT DO THIS IN PRODUCTION
+
+# HTTP Server
+server.port:  1013  # HTTP (Tomcat) port
