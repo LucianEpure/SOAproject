@@ -40,7 +40,7 @@
             <td th:text="${booking.noOfDays}">0</td>
             <td th:text="${booking.cost}">0</td>
             <td>
-                <form action="#" th:action="@{|/bookings/deleteBooking/${booking.id}|}" th:method="delete" >
+                <form action="#" th:action="@{|/bookings/deleteBooking/${booking.id}|}" >
                     <button type="submit" class="btn">
                         Delete
                     </button>

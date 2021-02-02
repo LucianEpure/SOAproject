@@ -27,4 +27,9 @@ public class RoomController {
         System.out.println(room.getRoomFloor());
         return room;
     }
+    @RequestMapping(value = "/rooms/deleteRoom/{roomNumber}")
+    public String deleteRoom(@PathVariable("roomNumber") String roomNumber) {
+        roomRepository.deleteById(Integer.parseInt(roomNumber));
+        return "menu";
+    }
 }

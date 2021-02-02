@@ -38,7 +38,7 @@
             <td th:text="${employee.employeeName}">Owner</td>
             <td th:text="${employee.salary}">0</td>
             <td>
-                <form action="#" th:action="@{|/employees/deleteEmployee/${employee.id}|}" th:method="delete" >
+                <form action="#" th:action="@{|/employees/deleteEmployee/${employee.id}|}" >
                     <button type="submit" class="btn">
                         Delete
                     </button>

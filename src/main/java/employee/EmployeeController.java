@@ -30,7 +30,7 @@ public class EmployeeController {
         Employee employee = employeeRepository.findById(Integer.parseInt(employeeNumber));
         return employee;
     }
-    @RequestMapping(value = "/employees/deleteEmployee/{employeeNumber}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/employees/deleteEmployee/{employeeNumber}")
     public String deleteEmployee(@PathVariable("employeeNumber") String employeeNumber) {
         employeeRepository.deleteById(Integer.parseInt(employeeNumber));
         return "menu";

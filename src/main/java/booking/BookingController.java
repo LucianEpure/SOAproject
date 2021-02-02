@@ -29,4 +29,9 @@ public class BookingController {
         Booking booking = bookingRepository.findById(Integer.parseInt(bookingNumber));
         return booking;
     }
+    @RequestMapping(value = "/bookings/deleteBooking/{bookingNumber}")
+    public String deleteBooking(@PathVariable("bookingNumber") String bookingNumber) {
+        bookingRepository.deleteById(Integer.parseInt(bookingNumber));
+        return "menu";
+    }
 }
