@@ -9,8 +9,17 @@ public class Employee {
     private int id;
     private String employeeName;
     private int salary;
+    private String emailAddress;
 
     public Employee() {
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public int getId() {

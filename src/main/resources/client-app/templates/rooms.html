@@ -28,6 +28,7 @@
             <th>Room Floor</th>
             <th>Available</th>
             <th>Smoking</th>
+            <th>Operation</th>
         </tr>
         </thead>
 
@@ -40,6 +41,13 @@
             <td th:text="${room.roomFloor}">0</td>
             <td th:text="${room.isAvailable}">0</td>
             <td th:text="${room.smokingRoom}">0</td>
+            <td>
+                <form action="#" th:action="@{|/rooms/deleteRoom/${room.id}|}" th:method="delete" >
+                    <button type="submit" class="btn">
+                        Delete
+                    </button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>

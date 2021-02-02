@@ -27,6 +27,10 @@ public class ClientApp {
     public static final String BOOKING_SERVICE_URL
             = "http://booking-service";
 
+    public static final String AUTHENTICATION_SERVICE_URL
+            = "http://authentication-service";
+
+
     public static void main(String[] args) {
 
         if (System.getProperty(ServiceFinderServer.SERVICE_FINDER_HOSTNAME) == null)
@@ -45,7 +49,7 @@ public class ClientApp {
 
     @Bean
     public ClientService clientService() {
-        return new ClientService(EMPLOYEE_SERVICE_URL,ROOM_SERVICE_URL, BOOKING_SERVICE_URL);
+        return new ClientService(EMPLOYEE_SERVICE_URL,ROOM_SERVICE_URL, BOOKING_SERVICE_URL, AUTHENTICATION_SERVICE_URL);
     }
 
     @Bean

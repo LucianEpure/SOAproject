@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -31,7 +32,7 @@ public class AuthenticationConfiguration {
     @PostConstruct
     private void initialize() {
 
-        BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
+        SCryptPasswordEncoder enc = new SCryptPasswordEncoder();
         Role admin = new Role();
         admin.setRoleName("admin");
         roleRepository.save(admin);

@@ -26,6 +26,7 @@
             <th>Emp Number</th>
             <th>Name</th>
             <th>Salary</th>
+            <th>Operation</th>
         </tr>
         </thead>
 
@@ -36,6 +37,13 @@
                    th:text="|${employee.id}|">11111111</a></td>
             <td th:text="${employee.employeeName}">Owner</td>
             <td th:text="${employee.salary}">0</td>
+            <td>
+                <form action="#" th:action="@{|/employees/deleteEmployee/${employee.id}|}" th:method="delete" >
+                    <button type="submit" class="btn">
+                        Delete
+                    </button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>

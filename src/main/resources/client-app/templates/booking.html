@@ -1,10 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Booking</title>
 </head>
 <body>
+<h1>Booking</h1>
+
+<div th:if="not ${booking}">
+    <div class="m-2 alert alert-warning">
+        Unable to find booking '<span th:text="${bookingId}">number</span>'
+    </div>
+    <div style="height: 2cm">&nbsp;</div>
+</div>
+
+<div th:if="${booking}" class="container">
+    <dl class="row">
+        <dt class="col-1">Id</dt>
+        <dd th:text="${booking.id}">id</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-1">Client name</dt>
+        <dd th:text="${booking.clientName}">clientName</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-1">No of days</dt>
+        <dd th:text="${booking.noOfDays}">noOfDays</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-1">Cost</dt>
+        <dd th:text="${booking.cost}">cost</dd>
+    </dl>
+</div>
+
+<div class="row" style="height: 2cm">&nbsp;</div>
 
 </body>
 </html>

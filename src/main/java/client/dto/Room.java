@@ -1,4 +1,4 @@
-package client;
+package client.dto;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 

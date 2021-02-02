@@ -1,0 +1,36 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+</head>
+<body>
+<h1>Employee</h1>
+
+<div th:if="not ${employee}">
+    <div class="m-2 alert alert-warning">
+        Unable to find employee '<span th:text="${employeeNumber}">number</span>'
+    </div>
+    <div style="height: 2cm">&nbsp;</div>
+</div>
+
+<div th:if="${employee}" class="container">
+    <dl class="row">
+        <dt class="col-1">Number</dt>
+        <dd th:text="${employee.employeeName}">name</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-1">Salary</dt>
+        <dd th:text="${employee.salary}">salary</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-1">Email address</dt>
+        <dd th:text="${employee.emailAddress}">address</dd>
+    </dl>
+</div>
+
+<div class="row" style="height: 2cm">&nbsp;</div>
+
+</body>

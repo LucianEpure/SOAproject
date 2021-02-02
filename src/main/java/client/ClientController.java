@@ -1,9 +1,15 @@
 package client;
 
+import client.dto.Booking;
+import client.dto.Employee;
+import client.dto.Room;
+import client.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -19,6 +25,17 @@ public class ClientController {
         this.clientService = clientService;
     }
 
+    @RequestMapping("/login")
+    public String displayLogin(Model model){
+        model.addAttribute(new User());
+        return "login";
+    }
+
+    @RequestMapping("/menu")
+    public String displayMenu(Model model){
+        model.addAttribute(new User());
+        return "menu";
+    }
 
     @RequestMapping("/employees")
     public String displayEmployeesMenu(Model model) {
@@ -48,6 +65,51 @@ public class ClientController {
 
         model.addAttribute("room", room);
         return "room";
+    }
+
+    @RequestMapping("/employees/{employeeNumber}")
+    public String getEmployeeByNumber(Model model, @PathVariable("employeeNumber") String employeeNumber) {
+        Employee employee = clientService.findEmployeeByNumber(employeeNumber);
+
+        model.addAttribute("employee", employee);
+        return "employee";
+    }
+
+    @RequestMapping("/bookings/{bookingNumber}")
+    public String getBookingByNumber(Model model, @PathVariable("bookingNumber") String bookingNumber) {
+        Booking booking = clientService.findBookingByNumber(bookingNumber);
+
+        model.addAttribute("booking", booking);
+        return "booking";
+    }
+
+    @RequestMapping("/employees/deleteEmployee/{employeeNumber}")
+    public String deleteEmployee(@PathVariable("employeeNumber") String employeeNumber) {
+        clientService.deleteEmployee(employeeNumber);
+        return "redirect:/menu";
+    }
+
+    @RequestMapping("/bookings/deleteBooking/{bookingNumber}")
+    public String deleteBooking(@PathVariable("bookingNumber") String bookingNumber) {
+        clientService.deleteBooking(bookingNumber);
+        return "redirect:/menu";
+    }
+
+    @RequestMapping("/rooms/deleteRoom/{roomNumber}")
+    public String deleteRoom(@PathVariable("roomNumber") String roomNumber) {
+        clientService.deleteRoom(roomNumber);
+        return "redirect:/menu";
+    }
+
+    @PostMapping("/login")
+    public String login(@ModelAttribute User user){
+        System.out.println(user.getUsername());
+        boolean successful = clientService.loginUser(user);
+        if(successful)
+            return "redirect:/menu";
+        else
+            return "redirect:/menu";
+            //return "redirect:/login";
     }
 
 }

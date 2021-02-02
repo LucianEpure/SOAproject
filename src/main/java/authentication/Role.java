@@ -8,6 +8,8 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(unique = true)
+    private String roleName;
 
     public Role(){
 
@@ -15,8 +17,6 @@ public class Role {
     public Role(String name){
         this.roleName = name;
     }
-    @Column(unique = true)
-    private String roleName;
 
     public String getRoleName() {
         return roleName;

@@ -27,6 +27,7 @@
             <th>Client name</th>
             <th>Number of days</th>
             <th>Total cost</th>
+            <th>Operation</th>
         </tr>
         </thead>
 
@@ -38,6 +39,13 @@
             <td th:text="${booking.clientName}">Owner</td>
             <td th:text="${booking.noOfDays}">0</td>
             <td th:text="${booking.cost}">0</td>
+            <td>
+                <form action="#" th:action="@{|/bookings/deleteBooking/${booking.id}|}" th:method="delete" >
+                    <button type="submit" class="btn">
+                        Delete
+                    </button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>

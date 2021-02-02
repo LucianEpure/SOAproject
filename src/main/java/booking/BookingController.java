@@ -1,6 +1,8 @@
 package booking;
 
+import employee.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +22,11 @@ public class BookingController {
         List<Booking> bookings = bookingRepository.findAll();
 
         return bookings;
+    }
+
+    @RequestMapping("/bookings/{bookingNumber}")
+    public Booking getBookingByNumber(@PathVariable("bookingNumber") String bookingNumber) {
+        Booking booking = bookingRepository.findById(Integer.parseInt(bookingNumber));
+        return booking;
     }
 }

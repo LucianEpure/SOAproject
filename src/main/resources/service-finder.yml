@@ -6,6 +6,5 @@ eureka:
     # multiple discovery servers for redundancy)
     registerWithEureka: false
     fetchRegistry: false
-
 server:
   port: 1010   # HTTP (Tomcat) port
